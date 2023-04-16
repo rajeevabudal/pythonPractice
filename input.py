@@ -1,2 +1,1 @@
-name = input("What is your name?");
-print(name);
+print(input("What is your name?"));
