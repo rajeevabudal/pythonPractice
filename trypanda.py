@@ -1,19 +1,13 @@
 import pandas as pd
+pd.set_option("display.max_rows", None)
 
-data = pd.read_xlsx("/Users/rajeevabudal/Downloads/2318083-car_data.xlsx")
+cust= pd.read_excel("/Users/rajeevabudal/Downloads/2318029-Custumer_Data.xlsx")
 
-print(data.head())
-print(data[["name", "sex"]].head())
-print(data[data.name == "na"].head())
-# print(data.tail(1))
-print(data.shape[0])
+order = pd.read_excel("/Users/rajeevabudal/Downloads/2318030-Orders_Data.xlsx")
 
-print(list(data.columns))
+# print(cust.head())
+# print(order.head())
 
-print(type(data))
+cust_order = pd.merge(cust, cust, left_on = "ID", right_on = "Name", how = "left")[["Name", "Address", "OID", "Date"]]
 
-print(data[(data["name"] == "Max Ruin ") & (data["mark"] == 85)].head())
-
-print(data[data["mark"].isin ([60, 75])]).head(5)
-
-print(data.dtypes)
+print(cust_order.head(5));
